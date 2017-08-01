@@ -120,3 +120,18 @@ fr:
       not_saved:
         one: 'une erreur a empêché ce (cet ou cette) %{resource} d’être enregistré(e) :'
         other: "%{count} erreurs ont empêché ce (cet ou cette) %{resource} d’être enregistré(e) :"
+
+    activerecord:
+        errors:
+            models:
+                problem:
+                    attributes:
+                        problem_type:
+                        category:
+                        summary:
+                        
+                attributes:
+                     problem:
+                        problem_type: "Le titre du message"
+                        category: "Le type de problème"
+                        summary: "La description du problème"                       

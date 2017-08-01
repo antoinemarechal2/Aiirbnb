@@ -18,10 +18,7 @@ ActiveRecord::Schema.define(version: 20170801091842) do
     t.string   "problem_type"
     t.string   "category"
 =======
-ActiveRecord::Schema.define(version: 20170801081926) do
 
-  create_table "problems", force: :cascade do |t|
-    t.string   "problem_type"
     
 >>>>>>> a7ef64412295d1b72906507988e83f9ad00995d0
     t.text     "summary"

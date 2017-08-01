@@ -25,6 +25,12 @@ fr:
         unconfirmed_email: 
         unlock_token: Clé de déblocage
         updated_at: 
+        fullname: Nom complet
+    problem:
+        category: Le type de votre problème
+        problem_type: Le titre de votre message 
+        summary: La description de votre problème
+            
     models:
       user: Utilisateur
   devise:

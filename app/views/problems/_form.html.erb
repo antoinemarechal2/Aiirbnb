@@ -1,0 +1,43 @@
+<div class="panel panel-default">
+    <div class="panel-heading">
+        Exposez votre problème pour obtenir de l'aide sur AltR.
+    </div>
+    <div class="panel-body">
+        <div class="container">
+            <%= form_for @problem do |f| %>
+            <div class="row">
+                <div class="col-md-4 select">
+                    <div class="form-group">
+                        <label>Type de problème</label>
+                        <%= f.select :category, [["Problème conjugal","Problème conjugal"],["Problème professionnel","Problème professionnel"],["Problème familial","Problème familial"],["Embrouille avec un proche","Embrouille avec un proche"],["Deuil","Deuil"],["Manque de confiance","Manque de confiance"],["Dépendance","Dépendance"],["Déprime","Déprime"],["Autre","Autre"]], id: "category", prompt: "A sélectionner", class:"form-control" %>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="row">
+                <div class="form-group">
+                    <label>Donnez un titre à votre message :</label>
+                    <%= f.text_field :problem_type, placeholder:"Titre du message", class:"form-control" %>
+                </div>
+            </div>
+            
+            <div class="row">
+                <div class="form-group">
+                    <label>Résumez votre problème :</label>
+                    <%= f.text_area :summary, placeholder:"Description de votre problème", class:"form-control" %>
+                </div>
+            </div>
+            
+            <div class="row">
+                <div class="form-group">
+                    <%= f.check_box :active %> Annonce active
+                </div>
+            </div>
+            
+            <div class="actions">
+                <%= f.submit "Je valide mon message", class:"btn btn-primary" %>
+            </div>
+            <% end %>
+        </div>
+    </div>
+</div>

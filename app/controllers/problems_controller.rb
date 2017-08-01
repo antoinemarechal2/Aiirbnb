@@ -1,6 +1,7 @@
 class ProblemsController < ApplicationController 
 
-before_action :set_problem, only: [:show, :edit, :update]    
+before_action :set_problem, only: [:show, :edit, :update]   
+before_action :authenticate_user!, except: [:show]
     
     def index
       @rooms = current_user.problems 
@@ -39,7 +40,7 @@ before_action :set_problem, only: [:show, :edit, :update]
     end
 
     def problem_params
-      params.require(:problem).permit(:problem_type, :summary, :active)
+      params.require(:problem).permit(:problem_type, :category, :summary, :active)
     end
     
 end

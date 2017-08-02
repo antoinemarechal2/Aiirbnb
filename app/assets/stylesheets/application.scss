@@ -221,3 +221,15 @@ input[type="checkbox"]:checked:before {
 textarea#problem_summary {
     height: 250px;
 }
+
+.bloc {
+ background-clip:padding-box;
+background-color:#D9EFFD;
+border-radius:3px;
+box-shadow:rgb(229, 229, 229) 0px 1px 1px 0px;
+box-sizing:border-box;
+display:block;
+padding-left:3px;
+width:160px;
+text-align:center;
+}

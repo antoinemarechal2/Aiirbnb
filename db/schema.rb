@@ -11,16 +11,11 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-<<<<<<< HEAD
-ActiveRecord::Schema.define(version: 20170801091842) do
+ActiveRecord::Schema.define(version: 20170802143302) do
 
   create_table "problems", force: :cascade do |t|
     t.string   "problem_type"
     t.string   "category"
-=======
-
-    
->>>>>>> a7ef64412295d1b72906507988e83f9ad00995d0
     t.text     "summary"
     t.boolean  "active"
     t.integer  "user_id"
@@ -29,20 +24,6 @@ ActiveRecord::Schema.define(version: 20170801091842) do
   end
 
   add_index "problems", ["user_id"], name: "index_problems_on_user_id"
-<<<<<<< HEAD
-=======
-
-  create_table "rooms", force: :cascade do |t|
-    t.string   "problem_type"
-    t.text     "summary"
-    t.boolean  "active"
-    t.integer  "user_id"
-    t.datetime "created_at",   null: false
-    t.datetime "updated_at",   null: false
-  end
-
-  add_index "rooms", ["user_id"], name: "index_rooms_on_user_id"
->>>>>>> a7ef64412295d1b72906507988e83f9ad00995d0
 
   create_table "users", force: :cascade do |t|
     t.string   "email",                  default: "", null: false

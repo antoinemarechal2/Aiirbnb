@@ -5,7 +5,7 @@ before_action :authenticate_user!, except: [:show]
 before_action :require_same_user, only: [:edit, :update]
     
     def index
-      @rooms = current_user.problems 
+      @problems = current_user.problems 
     end
  
     def new

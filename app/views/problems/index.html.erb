@@ -1,0 +1,29 @@
+<div class="row">
+      <div class="col-md-3">
+            <ul class="sidebar-list">
+                   <li class="sidebar-item"><%= link_to "Mes demandes d'aide", problems_path, class: "sidebar-link active" %></li>
+            </ul>
+       </div>
+       <div class="col-md-9">
+            <div class="panel panel-default">
+                 <div class="panel-heading">Mes demandes d'aide
+                 </div>
+                <div class="panel-body">
+                      <% @problems.each do |problem| %>
+                         <div class="row">
+                                 <div class="col-md-3">
+                                     <p><font color=gray><%= problem.category %></font></p>
+                                 </div>
+                                 <div class="col-md-6">
+                                        <h4><%= problem.problem_type %></h4>
+                                 </div>                              
+                                 <div class="col-md-3 right">
+                                     <%= link_to "Mettre à jour", edit_problem_path(problem), class: "btn btn-primary" %>
+                                 </div>
+                        </div>
+                        <hr>
+                   <% end %>
+               </div>
+           </div>
+     </div>
+ </div>

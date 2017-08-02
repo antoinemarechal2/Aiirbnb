@@ -8,11 +8,11 @@
             <%= render 'shared/errors' %>
             <div class="row">
                 <div class="col-md-4 select">
-                    <div class="form-group">
-                        <label>Type de problème</label>
-                        <%= f.select :category, [["Problème conjugal","Problème conjugal"],["Problème professionnel","Problème professionnel"],["Problème familial","Problème familial"],["Embrouille avec un proche","Embrouille avec un proche"],["Deuil","Deuil"],["Manque de confiance","Manque de confiance"],["Dépendance","Dépendance"],["Déprime","Déprime"],["Autre","Autre"]], id: "category", prompt: "A sélectionner", class:"form-control" %>
-                    </div>
+                <div class="form-group">
+                <label>Type de problème</label>
+                <%= f.select :category, [["Problème conjugal","Problème conjugal"],["Problème professionnel","Problème professionnel"],["Problème familial","Problème familial"],["Embrouille avec un proche","Embrouille avec un proche"],["Deuil","Deuil"],["Manque de confiance","Manque de confiance"],["Dépendance","Dépendance"],["Déprime","Déprime"],["Autre","Autre"]], id: "category", prompt: "A sélectionner", class:"form-control" %>
                 </div>
+            </div>
             </div>
             
             <div class="row">

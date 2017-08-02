@@ -2,6 +2,7 @@ class ProblemsController < ApplicationController
 
 before_action :set_problem, only: [:show, :edit, :update]   
 before_action :authenticate_user!, except: [:show]
+before_action :require_same_user, only: [:edit, :update]
     
     def index
       @rooms = current_user.problems 

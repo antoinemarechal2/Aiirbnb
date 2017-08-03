@@ -3,7 +3,7 @@ class ResolutionsController < ApplicationController
 def create
  
       @resolution = current_user.resolutions.create(resolution_params)       
-      redirect_to @resolution.problem, notice: « Votre proposition de résolution du problème a été enregistrée » end
+      redirect_to @resolution.problem, notice: "votre proposition de résolution du problème a été enregistrée" end
  
   
 private

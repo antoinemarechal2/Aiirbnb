@@ -13,7 +13,8 @@ Rails.application.routes.draw do
     resources :resolutions, only: [:create]
   end
   
-  get 'your_helps' => 'resolutions#your_helps', path: 'mes_aides'
+  get 'your_helps' => 'resolutions#your_helps', path: 'j-aide'
+  get '/your_resolutions' => 'resolutions#your_resolutions', path: 'je-me-fais-aider'
   
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'

@@ -9,8 +9,11 @@ def your_helps
 @helps = current_user.resolutions
 end
   
-private
+def your_resolutions
+@problems = current_user.problems
+end
  
+private
      def resolution_params         
         params.require(:resolution).permit(:problem_id)     
      end 

@@ -9,9 +9,12 @@ Rails.application.routes.draw do
   root 'pages#home'
 
   resources :users, only: [:show]
-  resources :problems do
+  resources :problems, path: 'problemes' do
     resources :resolutions, only: [:create]
   end
+  
+  get 'your_helps' => 'resolutions#your_helps', path: 'mes_aides'
+  
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
 

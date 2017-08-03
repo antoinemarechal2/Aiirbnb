@@ -5,6 +5,9 @@ def create
       @resolution = current_user.resolutions.create(resolution_params)       
       redirect_to @resolution.problem, notice: "votre proposition de résolution du problème a été enregistrée" end
  
+def your_helps
+@helps = current_user.resolutions
+end
   
 private
  

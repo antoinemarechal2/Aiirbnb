@@ -1,5 +1,36 @@
-<h2> Bienvenue sur AltR !!</h2>
-
-<%= link_to 'Inscription', new_user_registration_path %>
-<%= link_to 'Connexion', new_user_session_path %>
-<%= link_to 'Déconnexion', destroy_user_session_path, method: :delete %>
+<div class="row">
+        <div class="text-center">
+            <h1>Aidez des personnes qui ont besoin de vous pour aller mieux !</h1>
+        </div>
+</div>
+<br>
+<hr>
+<br>
+<div class="row">
+    <div class="col-md-4">
+        <h4>Problèmes en attente d'un AltRuiste</h4>
+    </div>
+</div>
+<div class="row">
+    <% @problems.each do |problem| %>
+        <div class="col-md-4">
+            <div class="panel panel-default">
+                <div class="panel-heading preview">
+                    <%= link_to problem.problem_type, problem_path(problem) %>
+                </div>
+                <div class="panel-body">
+                    <div class="row">
+                        <div class="col-md-6">
+                            <p class="bloc"><%= link_to problem.category, problem_path(problem) %></p>
+                        </div>
+                        <div class="col-md-2"><%= image_tag avatar_url(problem.user), class:"img-circle avatar-medium" %></div>
+                        <div class="col-md-4"><p><%= problem.user.fullname %></p></div>
+                    </div>
+                    <div class="row" style="margin-left: 2px">
+                        <%= problem.summary %>
+                    </div>
+                </div>
+            </div>
+        </div>
+    <% end %>
+</div>

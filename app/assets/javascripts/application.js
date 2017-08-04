@@ -16,6 +16,7 @@
 //= require toastr
 //= require turbolinks
 //= require_tree .
+//= require rails-timeago-all
 
 toastr.options = {
     "positionClass":"toast-bottom-right"

@@ -7,5 +7,4 @@ module ApplicationHelper
             'default_image.jpg'
         end
     end
-    
 end

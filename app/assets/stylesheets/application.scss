@@ -232,3 +232,12 @@ display:block;
 width:160px;
 text-align:center;
 }
+
+.conversation {
+color: #7f7f7f;
+padding: 10px;
+ }
+ 
+ .conversation:hover, .conversation:focus {
+background-color: #F4F4F5;
+ } 

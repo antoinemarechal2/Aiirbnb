@@ -27,6 +27,7 @@ gem 'font-awesome-sass'
 
 gem 'paperclip-cloudinary'
 gem 'ransack'
+gem 'rails-timeago'
 
 # Use jquery as the JavaScript library
 gem 'jquery-rails'

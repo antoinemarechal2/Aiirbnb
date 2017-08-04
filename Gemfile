@@ -26,6 +26,7 @@ gem 'toastr-rails'
 gem 'font-awesome-sass'
 
 gem 'paperclip-cloudinary'
+gem 'ransack'
 
 # Use jquery as the JavaScript library
 gem 'jquery-rails'

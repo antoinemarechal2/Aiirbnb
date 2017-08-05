@@ -2,8 +2,12 @@ class ResolutionsController < ApplicationController
  
 def create
  
-      @resolution = current_user.resolutions.create(resolution_params)       
-      redirect_to @resolution.problem, notice: "votre proposition de résolution du problème a été enregistrée" end
+      @resolution = current_user.resolutions.create(resolution_params)   
+      if @resolution.save
+       AppMailer.new_resolution(Problem.find(@resolution.problem_id), @resolution).deliver_now
+       redirect_to @resolution.problem, notice: "Merci pour votre preuve d'AltRuisme"
+      end
+      end
  
 def your_helps
 @helps = current_user.resolutions

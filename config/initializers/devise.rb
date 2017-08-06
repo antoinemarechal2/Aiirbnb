@@ -6,7 +6,7 @@ case Rails.env
     when "development" 
     config.omniauth :facebook, '656290437898225', 'f4a375ca3a0072d384411955f44ac63e', scope: "email", info_fields: 'email,name' 
     when "production"
-    config.omniauth :facebook, ENV['695009550708275'], ENV['3352c5bb72981e53f9169867b833e4eb'], scope: "email", info_fields: 'email,name'
+    config.omniauth :facebook, ENV['645080992366583'], ENV['988b7b4ec11b1ac968884dbda1d5174c'], scope: "email", info_fields: 'email,name'
 end
   # The secret key used by Devise. Devise uses this key to generate
   # random tokens. Changing this key will render invalid all existing

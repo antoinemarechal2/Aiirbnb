@@ -10,6 +10,6 @@ ActionMailer::Base.smtp_settings = {
  :authentication => :plain,
  :user_name => ENV['SENDGRID_USERNAME'],
  :password => ENV['SENDGRID_PASSWORD'],
- :domain => 'alt-r.fr',
+ :domain => 'app.alt-r.fr',
  :enable_starttls_auto => true
  }

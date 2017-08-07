@@ -6,7 +6,7 @@ Paperclip::Attachment.default_options.merge!({
  })
  
 config.action_mailer.delivery_method = :smtp
-config.action_mailer.default_url_options = { :host => 'altr.herokuapp.com', :protocol => 'https'}
+config.action_mailer.default_url_options = { :host => 'app.alt-r.fr', :protocol => 'http'}
  
   # Settings specified here will take precedence over those in config/application.rb.
 

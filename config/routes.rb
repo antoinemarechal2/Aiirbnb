@@ -21,9 +21,12 @@ Rails.application.routes.draw do
        resources :messages, only: [:index, :create]
  end
   
+  get '/preload' => 'resolutions#preload'
+  get '/preview' => 'resolutions#preview'
   get 'your_helps' => 'resolutions#your_helps', path: 'j-aide'
   get '/your_resolutions' => 'resolutions#your_resolutions', path: 'je-me-fais-aider'
   get '/search' => 'pages#search'
+  
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
 

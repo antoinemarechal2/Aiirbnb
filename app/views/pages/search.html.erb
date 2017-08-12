@@ -1,0 +1,41 @@
+<%= search_form_for @search, url: search_path do |f| %>
+
+    <div class="row">
+        <div class="col-md-4 select">
+            <label>Type de problème :</label>
+            <div class="form-group">
+                <%= f.select :category_eq, [["Problème conjugal","Problème conjugal"],["Problème professionnel","Problème professionnel"],["Problème familial","Problème familial"],["Embrouille avec un proche","Embrouille avec un proche"],["Deuil","Deuil"],["Manque de confiance","Manque de confiance"],["Dépendance","Dépendance"],["Déprime","Déprime"],["Autre","Autre"]], id: "category", prompt: "A sélectionner", class:"form-control" %>
+            </div>
+        </div>
+    </div>
+            <%= f.submit "Rechercher", class:"btn btn-primary" %>
+            <% end %>
+            
+<hr>
+<% if @arrProblems.empty? %>
+Aucune annonce ne correspond à votre recherche...
+<% else %>
+    <div class="row">
+        <% @arrProblems.each do |problem| %>
+            <div class="col-md-4">
+                <div class="panel panel-default">
+                    <div class="panel-heading preview">
+                        <%= link_to problem.problem_type, problem_path(problem) %>
+                    </div>
+                    <div class="panel-body">
+                        <div class="row">
+                            <div class="col-md-6">
+                                <p class="bloc"><%= link_to problem.category, problem_path(problem) %></p>
+                            </div>
+                            <div class="col-md-2"><%= image_tag avatar_url(problem.user), class:"img-circle avatar-medium" %></div>
+                            <div class="col-md-4"><p><%= problem.user.fullname %></p></div>
+                        </div>
+                        <div class="row" style="margin-left: 2px">
+                            <%= problem.summary %>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        <% end %>
+        <% end %>
+    </div>

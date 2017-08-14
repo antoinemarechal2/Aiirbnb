@@ -4,7 +4,8 @@ class User < ActiveRecord::Base
   devise :database_authenticatable, :registerable, :omniauthable,
          :recoverable, :rememberable, :trackable, :validatable, :confirmable
 
-  validates :fullname, presence:true, length: {maximum: 50}
+  validates :firstname, presence:true, length: {maximum: 50}
+   validates :lastname, presence:true, length: {maximum: 50}
 
 has_attached_file :avatar, :styles => { :medium => "300x300>", :thumb => "100x100>" }, default_url: "/assets/default_image.jpg"
 validates_attachment_content_type :avatar, :content_type => /\Aimage\/.*\Z/
@@ -20,6 +21,8 @@ def self.from_omniauth(auth)
       else
           where(provider: auth.provider, uid: auth.uid).first_or_create do |u|
               u.fullname = auth.info.name
+              u.firstname = auth.info.first_name
+              u.lastname = auth.info.last_name
               u.provider = auth.provider
               u.uid = auth.uid
               u.email = auth.info.email

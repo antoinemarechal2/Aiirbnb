@@ -12,7 +12,8 @@
                                    <%= image_tag avatar_url(other), class: "img-circle avatar-medium" %>
                                </div>
                                <div class="col-md-2">
-                                    <%= other.fullname %><br>
+                                    <%= other.firstname %> <%= other.lastname.first %>
+                                    <br>
                                    <%= timeago_tag conversation.messages.last.created_at, :lang=>:fr %>     
                                </div>
                                <div class="col-md-8">

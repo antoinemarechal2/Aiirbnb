@@ -34,7 +34,7 @@
                             <p class="bloc"><%= link_to problem.category, problem_path(problem) %></p>
                         </div>
                         <div class="col-md-2"><%= image_tag avatar_url(problem.user), class:"img-circle avatar-medium" %></div>
-                        <div class="col-md-4"><p><%= problem.user.fullname %></p></div>
+                        <div class="col-md-4"><p><%= problem.user.firstname %> <%= problem.user.lastname.first %></p></div>
                     </div>
                     <div class="row" style="margin-left: 2px">
                         <%= problem.summary %>

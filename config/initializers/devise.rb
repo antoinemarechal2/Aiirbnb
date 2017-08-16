@@ -4,9 +4,9 @@ Devise.setup do |config|
   
 case Rails.env
     when "development" 
-    config.omniauth :facebook, '656290437898225', 'f4a375ca3a0072d384411955f44ac63e', scope: "email", info_fields: 'email, name' 
+    config.omniauth :facebook, '656290437898225', 'f4a375ca3a0072d384411955f44ac63e', scope: "email", info_fields: 'email, name, first_name, last_name' 
     when "production"
-    config.omniauth :facebook, ENV['FACEBOOK_KEY'], ENV['FACEBOOK_SECRET'], scope: "email", info_fields: 'email, name'
+    config.omniauth :facebook, ENV['FACEBOOK_KEY'], ENV['FACEBOOK_SECRET'], scope: "email", info_fields: 'email, name, first_name, last_name'
 end
   # The secret key used by Devise. Devise uses this key to generate
   # random tokens. Changing this key will render invalid all existing

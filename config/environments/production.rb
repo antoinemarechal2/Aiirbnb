@@ -1,13 +1,20 @@
 Rails.application.configure do
   
-Paperclip::Attachment.default_options.merge!({
- :storage => :cloudinary,
- :path => ':id/:style/:filename'
- })
- 
-config.action_mailer.delivery_method = :smtp
-config.action_mailer.default_url_options = { :host => 'app.alt-r.fr', :protocol => 'http'}
- 
+  Paperclip::Attachment.default_options.merge!({
+    :storage => :cloudinary,
+    :path => ':id/:style/:filename'
+  })
+
+  config.action_mailer.delivery_method = :smtp
+  config.action_mailer.default_url_options = {
+    address:              'smtp.alt-r.fr',
+    port:                 587,
+    user_name:            'contact@alt-r.fr',
+    password:             'mHaqnh9BWWQrc9prWHNbKd&HU4',
+    authentication:       'login',
+    enable_starttls_auto: true
+  }
+
   # Settings specified here will take precedence over those in config/application.rb.
 
   # Code is not reloaded between requests.

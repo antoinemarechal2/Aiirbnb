@@ -1,25 +1,25 @@
 class ProblemsController < ApplicationController 
 
-before_action :set_problem, only: [:show, :edit, :update]   
-before_action :authenticate_user!, except: [:show]
-before_action :require_same_user, only: [:edit, :update]
+  before_action :set_problem, only: [:show, :edit, :update]   
+  before_action :authenticate_user!, except: [:show]
+  before_action :require_same_user, only: [:edit, :update]
     
-    def index
-      @problems = current_user.problems 
-    end
+  def index
+    @problems = current_user.problems 
+  end
  
-    def new
-      @problem = current_user.problems.build
-    end
+  def new
+    @problem = current_user.problems.build
+  end
 
-    def create
-      @problem = current_user.problems.build(problem_params)
+  def create
+    @problem = current_user.problems.build(problem_params)
     if @problem.save
       redirect_to edit_problem_path(@problem), notice:"Votre demande d'aide a été ajoutée avec succès" 
     else
      render :new # s’il y a une erreur, redirige vers la page de création new
     end
-    end
+  end
  
  def show
  end

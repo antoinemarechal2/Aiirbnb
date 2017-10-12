@@ -1,29 +1,25 @@
-<div class="row">
-    <div class="col-md-3">
-        
-    <%= image_tag avatar_url(@user), class:"avatar-full" %>
-        
-        <% if current_user != @user %>
-        <div class="row-space-2">
-            <%= link_to "Envoyer un message", conversations_path(sender_id: current_user.id, recipient_id: @user.id), method: 'post', class: "btn btn-primary wide" %>
+<div class="container">
+    <div class="row">
+        <div class="col-md-3">
+            
+        <%= image_tag avatar_url(@user), class:"avatar-full" %>
+         
+        <div class="panel panel-default">
+            <div class="panel-heading">Vérification</div>
+            <div class="panel-body">
+               <% if @user.confirmed_at %>
+               Email confirmé
+               <% else %>
+               Email non confirmé
+               <% end %>
+            </div>
         </div>
-    <% end %>
-     
-    <div class="panel panel-default">
-        <div class="panel-heading">Vérification</div>
-        <div class="panel-body">
-           <% if @user.confirmed_at %>
-           Email confirmé
-           <% else %>
-           Email non confirmé
-           <% end %>
         </div>
-    </div>
-    </div>
-        <div class="col-md-9">
-        <h2><%= @user.firstname %> <%= @user.lastname.first %></h2>
-        <div class="description row-space-3">
-            <%= @user.description %>
+            <div class="col-md-9">
+            <h2><%= @user.firstname %> <%= @user.lastname.first %></h2>
+            <div class="description row-space-3">
+                <%= @user.description %>
+            </div>
         </div>
     </div>
-    </div>
+</div>

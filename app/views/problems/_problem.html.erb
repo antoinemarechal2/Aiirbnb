@@ -1,0 +1,17 @@
+<div class="row">
+    <div class="col-md-3 text-center">
+        <br>
+        <%= link_to user_path(@problem.user) do %>
+           <%= image_tag avatar_url(@problem.user), class:"img-circle avatar-medium" %>
+       <% end %>
+        <br>
+        <%= @problem.user.firstname %> <%= @problem.user.lastname.first %>
+    </div>
+    <div class="col-md-9">
+        <div class="bloc">
+            <%= @problem.category %>
+        </div>
+        <h2><%= @problem.problem_type %></h2>
+        <p><%= @problem.summary %></p>
+    </div>
+</div>

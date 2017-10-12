@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170807144630) do
+ActiveRecord::Schema.define(version: 20171008184953) do
 
   create_table "conversations", force: :cascade do |t|
     t.integer  "sender_id"
@@ -46,8 +46,10 @@ ActiveRecord::Schema.define(version: 20170807144630) do
   create_table "resolutions", force: :cascade do |t|
     t.integer  "user_id"
     t.integer  "problem_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at",              null: false
+    t.datetime "updated_at",              null: false
+    t.text     "proposition"
+    t.integer  "status",      default: 0
   end
 
   add_index "resolutions", ["problem_id"], name: "index_resolutions_on_problem_id"

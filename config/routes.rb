@@ -14,7 +14,15 @@ Rails.application.routes.draw do
 
   resources :users, only: [:show]
   resources :problems, path: 'problemes' do
-    resources :resolutions, only: [:create]
+    resources :resolutions do
+      member do
+        get '/accepter', to: 'resolutions#accept', as: 'accept'
+        get '/refuser', to: 'resolutions#refuse', as: 'refuse'
+      end
+    end
+    resources :conversations do
+      resources :messages
+    end
   end
   
   resources :conversations, only: [:index, :create] do
@@ -26,6 +34,7 @@ Rails.application.routes.draw do
   get 'your_helps' => 'resolutions#your_helps', path: 'j-aide'
   get '/your_resolutions' => 'resolutions#your_resolutions', path: 'je-me-fais-aider'
   get '/search' => 'pages#search'
+  get '/a-propos' => 'pages#about'
   
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'

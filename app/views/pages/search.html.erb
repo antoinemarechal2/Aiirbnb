@@ -1,20 +1,30 @@
-<%= search_form_for @search, url: search_path do |f| %>
-
-    <div class="row">
-        <div class="col-md-4 select">
-            <label>Type de problème :</label>
-            <div class="form-group">
-                <%= f.select :category_eq, [["Problème conjugal","Problème conjugal"],["Problème professionnel","Problème professionnel"],["Problème familial","Problème familial"],["Embrouille avec un proche","Embrouille avec un proche"],["Deuil","Deuil"],["Manque de confiance","Manque de confiance"],["Dépendance","Dépendance"],["Déprime","Déprime"],["Autre","Autre"]], id: "category", prompt: "A sélectionner", class:"form-control" %>
+<div class="container">
+    <%= search_form_for @search, url: search_path do |f| %>
+    
+        <div class="row">
+            <div class="col-md-4 select">
+                <label>Type de problème :</label>
+                <div class="form-group">
+                    <%= f.select :category_eq, [
+                        ["Problème d'amitié","Problème d'amitié"],
+                        ["Problème sentimental / conjugal","Problème sentimental / conjugal"],
+                        ["Problème familial","Problème familial"],
+                        ["Handicap","Handicap"],
+                        ["Deuil","Deuil"],
+                        ["Santé / Dépendances","Santé / Dépendances"],
+                        ["Problème professionnel","Problème professionnel"],
+                        ["Divers","Divers"]
+                    ], id: "category", prompt: "A sélectionner", class:"form-control" %>
+                </div>
             </div>
         </div>
-    </div>
-            <%= f.submit "Rechercher", class:"btn btn-primary" %>
-            <% end %>
-            
-<hr>
-<% if @arrProblems.empty? %>
-Aucune annonce ne correspond à votre recherche...
-<% else %>
+                <%= f.submit "Rechercher", class:"btn btn-primary" %>
+                <% end %>
+                
+    <hr>
+    <% if @arrProblems.empty? %>
+    Aucune annonce ne correspond à votre recherche...
+    <% else %>
     <div class="row">
         <% @arrProblems.each do |problem| %>
             <div class="col-md-4">
@@ -39,3 +49,4 @@ Aucune annonce ne correspond à votre recherche...
         <% end %>
         <% end %>
     </div>
+</div>

@@ -1,32 +1,15 @@
-<div class="panel panel-default">
-    <div class="panel-body">
-        
-        <!-- Informations principales -->
-        <div class="row">
-            <div class="col-md-8">
-                <div class="row">
-                    <div class="col-md-3 text-center">
-                        <br>
-                        <%= link_to user_path(@problem.user) do %>
-                           <%= image_tag avatar_url(@problem.user), class:"img-circle avatar-medium" %>
-                       <% end %>
-                        <br>
-                        <%= @problem.user.fullname %>
-                    </div>
-                    <div class="col-md-9">
-                        <div class="bloc">
-                            <%= @problem.category %>
-                        </div>
-                        <h2><%= @problem.problem_type %></h2>
-                        
-                        <p><%= @problem.summary %></p>
-                    </div>
+<div class="container">
+    <div class="panel panel-default">
+        <div class="panel-body">
+            <div class="row">
+                <div class="col-md-8">
+                    <%= render 'problem' %>
                 </div>
+                <div class="col-md-4">
+                    <br/>
+                    <%= link_to 'Proposer mon aide', new_problem_resolution_path(@problem), class: "btn btn-primary" %>
+                </div>    
             </div>
-            <div class="col-md-4">
-                <br/>
-                <%= render 'resolutions/form' %>                
-            </div>    
         </div>
     </div>
 </div>

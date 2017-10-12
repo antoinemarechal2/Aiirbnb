@@ -1,36 +1,57 @@
-<div class="row">
-      <div class="col-md-3">
-            <ul class="sidebar-list">
-                   <li class="sidebar-item"><%= link_to "J'aide", your_helps_path, class: "sidebar-link" %></li>
-                   <li class="sidebar-item"><%= link_to "Je me fais aider", your_resolutions_path, class: "sidebar-link active" %></li>
-                   <li class="sidebar-item"><%= link_to "Mes problèmes en attente", problems_path, class: "sidebar-link" %></li>
-            </ul>
-       </div>
-<div class="col-md-9">
-        <div class="panel panel-default">
-            <div class="panel-heading"> Mes problèmes en cours de résolution</div>
-            <div class="panel-body">
-                <% @problems.each do |problem| %>
-                <% problem.resolutions.order("id DESC").each do |resolution| %>
-                <div class="row">
-                   <div class="col-md-6">
-                       <h3><%= link_to problem_path(resolution.problem) do %>
-                           <%= resolution.problem.problem_type %>
-                       <% end %></h3>
-                   </div>
-                   <div class="col-md-1 right">
-                        <%= link_to user_path(resolution.problem.user) do %>
-                           <%= image_tag avatar_url(resolution.problem.user), class:"img-circle avatar-medium" %>
-                       <% end %>
-                   </div>
-                   <div class="col-md-5">
-                        <%= resolution.problem.user.fullname %>
-                   </div>
-                </div>
-                <hr>
-                <% end %>
-                <% end %>
-            </div>
-        </div>
+<div class="container">
+  <div class="row">
+    <div class="col-md-3">
+      <ul class="sidebar-list">
+      <li class="sidebar-item"><%= link_to "J'aide", your_helps_path, class: "sidebar-link" %></li>
+      <li class="sidebar-item"><%= link_to "Je me fais aider", your_resolutions_path, class: "sidebar-link active" %></li>
+      </ul>
     </div>
+    <div class="col-md-9">
+      <div class="panel panel-default">
+        <div class="panel-heading"> Mes problèmes en cours de résolution</div>
+        <div class="panel-body">
+          <% @problems.each do |problem| %>
+            <div class="row">
+              <div class="col-md-3">
+                <h3><%= link_to problem.problem_type, problem_path(problem) %></h3>
+              </div>
+              <div class="col-md-6">
+                <p><%= problem.summary %></p>
+              </div>
+              <div class="col-md-3 right">
+                <%= link_to "Mettre à jour", edit_problem_path(problem), class: "btn btn-primary" %>
+              </div>
+            </div>
+            <hr>
+            <% problem.resolutions.each do |resolution| %>
+              <div class="row">
+                <div class="col-md-1 right">
+                  <%= link_to user_path(resolution.user) do %>
+                    <%= image_tag avatar_url(resolution.user), class:"img-circle avatar-medium" %>
+                  <% end %>
+                </div>
+                <div class="col-md-2">
+                  <%= resolution.user.firstname %> <%= resolution.user.lastname.first %>
+                </div>
+                <div class="col-md-6">
+                  <%= resolution.proposition %>
+                </div>
+                <div class="col-md-3 right">
+                  <% if resolution.accepted? %>
+                    <p><%= link_to "Envoyer un message", conversations_path(sender_id: current_user.id, recipient_id: resolution.user_id), method: 'post', class: "btn btn-primary wide" %></p>
+                  <% elsif resolution.refused? %>
+                    <p>Vous avez refusé la proposition d'aide</p>
+                  <% elsif resolution.created? %>
+                    <p><%= link_to "Accepter", accept_problem_resolution_path(resolution.problem, resolution), class: "btn btn-primary" %></p>
+                    <p><%= link_to "Refuser", refuse_problem_resolution_path(resolution.problem, resolution), class: "btn btn-primary" %></p>
+                  <% end %>
+                </div>
+              </div>
+              <hr>
+            <% end %>
+          <% end %>
+        </div>
+      </div>
+    </div>
+  </div>
 </div>

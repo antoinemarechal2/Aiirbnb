@@ -7,12 +7,19 @@
             <%= form_for @problem, html: {multipart: true} do |f| %>
             <%= render 'shared/errors' %>
             <div class="row">
-                <div class="col-md-4 select">
                 <div class="form-group">
                 <label>Type de problème</label>
-                <%= f.select :category, [["Problème conjugal","Problème conjugal"],["Problème professionnel","Problème professionnel"],["Problème familial","Problème familial"],["Embrouille avec un proche","Embrouille avec un proche"],["Deuil","Deuil"],["Manque de confiance","Manque de confiance"],["Dépendance","Dépendance"],["Déprime","Déprime"],["Autre","Autre"]], id: "category", prompt: "A sélectionner", class:"form-control" %>
+                <%= f.select :category, [
+                    ["Problème d'amitié","Problème d'amitié"],
+                    ["Problème sentimental / conjugal","Problème sentimental / conjugal"],
+                    ["Problème familial","Problème familial"],
+                    ["Handicap","Handicap"],
+                    ["Deuil","Deuil"],
+                    ["Santé / Dépendances","Santé / Dépendances"],
+                    ["Problème professionnel","Problème professionnel"],
+                    ["Divers","Divers"]
+                ], id: "category", prompt: "A sélectionner", class:"form-control" %>
                 </div>
-            </div>
             </div>
             
             <div class="row">
@@ -30,13 +37,9 @@
             </div>
             
             <div class="row">
-                <div class="form-group">
-                    <%= f.check_box :active %> Annonce active
+                <div class="actions">
+                    <%= f.submit "Je valide mon message", class:"btn btn-primary" %>
                 </div>
-            </div>
-            
-            <div class="actions">
-                <%= f.submit "Je valide mon message", class:"btn btn-primary" %>
             </div>
             <% end %>
         </div>

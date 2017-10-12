@@ -1,34 +1,42 @@
-<div class="row">
-      <div class="col-md-3">
-            <ul class="sidebar-list">
-                   <li class="sidebar-item"><%= link_to "J'aide", your_helps_path, class: "sidebar-link active" %></li>
-                   <li class="sidebar-item"><%= link_to "Je me fais aider", your_resolutions_path, class: "sidebar-link" %></li>
-                   <li class="sidebar-item"><%= link_to "Mes problèmes en attente", problems_path, class: "sidebar-link" %></li>
-            </ul>
-       </div>
-    <div class="col-md-9">
-        <div class="panel panel-default">
-                 <div class="panel-heading">Mes discussions pour aider</div>
-            <div class="panel-body">
-                      <% @helps.order("id DESC").each do |help| %>
-                <div class="row">
-                   <div class="col-md-6">
-                       <h3><%= link_to problem_path(help.problem) do %>
-                       <%= help.problem.problem_type %>
-                       <% end %></h3>
-                   </div>
-                   <div class="col-md-1 right">
-                        <%= link_to user_path(help.problem.user) do %>
-                           <%= image_tag avatar_url(help.problem.user), class:"img-circle avatar-medium" %>
-                       <% end %>
-                   </div>
-                   <div class="col-md-5">
-                        <%= help.problem.user.fullname %>
-                   </div>
-                </div>
-                        <hr>
-                   <% end %>
-            </div>
-        </div>
+<div class="container">
+  <div class="row">
+    <div class="col-md-3">
+      <ul class="sidebar-list">
+        <li class="sidebar-item"><%= link_to "J'aide", your_resolutions_path, class: "sidebar-link active" %></li>
+        <li class="sidebar-item"><%= link_to "Je me fais aider", your_resolutions_path, class: "sidebar-link" %></li>
+      </ul>
     </div>
+    <div class="col-md-9">
+      <div class="panel panel-default">
+        <div class="panel-heading">Mes discussions pour aider</div>
+        <div class="panel-body">
+          <% @resolutions.each do |resolution| %>
+            <div class="row">
+              <div class="col-md-6">
+                <h3><%= link_to resolution.problem.problem_type, problem_path(resolution.problem) %></h3>
+              </div>
+              <div class="col-md-1 right">
+                <%= link_to user_path(resolution.problem.user) do %>
+                  <%= image_tag avatar_url(resolution.problem.user), class:"img-circle avatar-medium" %>
+                <% end %>
+              </div>
+              <div class="col-md-2">
+                <%= resolution.problem.user.firstname %> <%= resolution.problem.user.lastname.first %>
+              </div>
+              <div class="col-md-3">
+                <% if resolution.accepted? %>
+                  <p><%= link_to "Envoyer un message", conversations_path(sender_id: current_user.id, recipient_id: resolution.problem.user_id), method: 'post', class: "btn btn-primary wide" %></p>
+                <% elsif resolution.refused? %>
+                  <p>Votre proposition d'aide a été refusée</p>
+                <% elsif resolution.created? %>
+                  <p>Votre proposition d'aide n'a pas encore été acceptée ou refusée</p>
+                <% end %>
+              </div>
+            </div>
+            <hr>
+          <% end %>
+        </div>
+      </div>
+    </div>
+  </div>
 </div>

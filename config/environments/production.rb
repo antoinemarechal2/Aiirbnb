@@ -7,7 +7,7 @@ Rails.application.configure do
 
   config.action_mailer.delivery_method = :smtp
   config.action_mailer.smtp_settings = {
-    address:              'smtp.alt-r.fr',
+    address:              'ssl0.ovh.net',
     port:                 587,
     user_name:            'contact@alt-r.fr',
     password:             'mHaqnh9BWWQrc9prWHNbKd&HU4',

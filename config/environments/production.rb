@@ -7,6 +7,8 @@ Rails.application.configure do
 
   config.action_mailer.delivery_method = :smtp
   config.action_mailer.default_url_options = {
+    protocol:             'https',
+    host:                 'www.alt-r.fr',
     address:              'smtp.alt-r.fr',
     port:                 587,
     user_name:            'contact@alt-r.fr',

@@ -6,15 +6,17 @@ Rails.application.configure do
   })
 
   config.action_mailer.delivery_method = :smtp
-  config.action_mailer.default_url_options = {
-    protocol:             'https',
-    host:                 'www.alt-r.fr',
+  config.action_mailer.smtp_settings = {
     address:              'smtp.alt-r.fr',
     port:                 587,
     user_name:            'contact@alt-r.fr',
     password:             'mHaqnh9BWWQrc9prWHNbKd&HU4',
     authentication:       'login',
     enable_starttls_auto: true
+  }
+  config.action_mailer.default_url_options = {
+    protocol:             'https',
+    host:                 'www.alt-r.fr',
   }
 
   # Settings specified here will take precedence over those in config/application.rb.

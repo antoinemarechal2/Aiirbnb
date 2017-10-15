@@ -1,4 +1,6 @@
 class ResolutionsController < ApplicationController
+  before_action :authenticate_user!
+  
   def index
     @problem = Problem.find(params[:problem_id])
     @resolutions = Resolution.where(problem_id: params[:problem_id])

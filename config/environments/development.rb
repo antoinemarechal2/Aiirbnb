@@ -1,7 +1,12 @@
 Rails.application.configure do
   # Settings specified here will take precedence over those in config/application.rb.
-config.action_mailer.delivery_method = :test
-config.action_mailer.default_url_options = { :host => 'altr-antoinemarechal.c9users.io:8080'}
+  
+  config.action_mailer.delivery_method = :mailjet
+  
+  config.action_mailer.default_url_options = {
+    protocol:             'https',
+    host:                 'altr.dilolabs.net',
+  }
 
   # In the development environment your application's code is reloaded on
   # every request. This slows down response time but is perfect for development

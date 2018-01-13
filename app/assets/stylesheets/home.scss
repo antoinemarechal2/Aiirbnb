@@ -1,0 +1,30 @@
+.header {
+  position: absolute;
+  top: 20px;
+  left: 20px;
+  width: 50%;
+}
+
+.header h1 {
+  color: #fff;
+  font-size: 46px;
+}
+
+.header-btn-container {
+  position: absolute;
+  bottom: 10%;
+  width: 100%;
+}
+
+.header-btn {
+  padding: 20px 80px;
+  font-size: 20px;
+}
+
+.header-help-me-btn {
+  margin-left: 10%;
+}
+
+.header-help-other-btn {
+  margin-right: 10%;
+}

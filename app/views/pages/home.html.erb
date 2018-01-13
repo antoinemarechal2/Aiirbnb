@@ -8,9 +8,7 @@
         <a href="#envie-aider" class="btn btn-success pull-right header-btn header-help-other-btn">Envie d'aider</a>
     </div>
 </div>
-
 <div class="container">
-
     <div class="row">
         <h2 id="envie-aider">Je veux aider quelqu’un à aller mieux !</h2>
         <p>Je choisis le type de problème pour lequel je suis en mesure de conseiller quelqu’un :</p>
@@ -67,12 +65,10 @@
             </div>
         </div>
     </div>
-    
     <div class="row mt-6">
         <h2>Vous avez besoin d’aide et de quelqu’un à qui parler ?</h2>
         <%= button_to "Présenter mon problème", new_problem_path, class: "btn btn-primary", method: :get %>
     </div>
-    
     <div class="row mt-6">
         <h2>Des gens ont besoin de votre aide. Lequel pouvez-vous aider ?</h2>
         <% @problems.each do |problem| %>
@@ -97,7 +93,6 @@
             </div>
         <% end %>
     </div>
-    
     <div class="row mt-6">
         <h2>AltR, c'est :</h2>
         <p>
@@ -107,5 +102,4 @@
             L’alternative : notamment aux solutions classiques pour obtenir une aide et qui reposent souvent sur un intérêt financier
         </p>
     </div>
-
 </div>

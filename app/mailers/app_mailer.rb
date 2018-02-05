@@ -6,3 +6,4 @@ class AppMailer < ActionMailer::Base
     mail(from: 'AltR <contact@alt-r.fr>', to: @user.email, subject: "Quelqu'un veut vous aider à résoudre votre problème !")
   end
 end
+

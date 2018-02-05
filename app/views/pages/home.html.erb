@@ -1,105 +1,106 @@
 <div id="header" style="position: relative;">
-    <%= image_tag "home_header.jpg", style: "width: 100%;" %>
-    <div class="header hidden-xs">
-        <h1>Besoin de parler ? Envie d'aider ?<br>Trouvez votre AltR et go !</h1>
-    </div>
-    <div class="hidden-xs header-btn-container">
-        <a href="/problemes/new" class="btn btn-primary header-btn header-help-me-btn">Besoin d'aide</a>
-        <a href="#envie-aider" class="btn btn-success pull-right header-btn header-help-other-btn">Envie d'aider</a>
-    </div>
+  <%= image_tag "home_header.jpg", style: "width: 100%;" %>
+  <div class="header hidden-xs">
+    <h1>Besoin de parler ? Envie d'aider ?<br>Trouvez votre AltR et go !</h1>
+  </div>
+  <div class="hidden-xs header-btn-container">
+    <a href="/problemes/new" class="btn btn-primary header-btn header-help-me-btn">Besoin d'aide</a>
+    <a href="#envie-aider" class="btn btn-success pull-right header-btn header-help-other-btn">Envie d'aider</a>
+  </div>
 </div>
 <div class="container">
+  <div class="row">
+    <h2 id="envie-aider">Je veux aider quelqu’un à aller mieux !</h2>
+    <p>Je choisis le type de problème pour lequel je suis en mesure de conseiller quelqu’un :</p>
     <div class="row">
-        <h2 id="envie-aider">Je veux aider quelqu’un à aller mieux !</h2>
-        <p>Je choisis le type de problème pour lequel je suis en mesure de conseiller quelqu’un :</p>
-        <div class="row">
-            <div class="col-md-3">
-                <%= link_to search_url('q[category_eq]': "Problème d'amitié") do %>
-                    <%= image_tag "categorie_amitie.png", class: "img-responsive" %>
-                    <h3 class="text-center">Problème d'amitié</h3>
-                <% end %>
-            </div>
-            <div class="col-md-3">
-                <%= link_to search_url('q[category_eq]': "Problème sentimental / conjugal") do %>
-                    <%= image_tag "categorie_amour.png", class: "img-responsive" %>
-                    <h3 class="text-center">Problème sentimental / conjugal</h3>
-                <% end %>
-            </div>
-            <div class="col-md-3">
-                <%= link_to search_url('q[category_eq]': "Problème familial") do %>
-                    <%= image_tag "categorie_famille.png", class: "img-responsive" %>
-                    <h3 class="text-center">Problème familial</h3>
-                <% end %>
-            </div>
-            <div class="col-md-3">
-                <%= link_to search_url('q[category_eq]': "Handicap") do %>
-                    <%= image_tag "categorie_handicap.png", class: "img-responsive" %>
-                    <h3 class="text-center">Handicap</h3>
-                <% end %>
-            </div>
-        </div>
-        <div class="row mt-5">
-            <div class="col-md-3">
-                <%= link_to search_url('q[category_eq]': "Deuil") do %>
-                    <%= image_tag "categorie_mort.png", class: "img-responsive" %>
-                    <h3 class="text-center">Deuil</h3>
-                <% end %>
-            </div>
-            <div class="col-md-3">
-                <%= link_to search_url('q[category_eq]': "Santé / Dépendances") do %>
-                    <%= image_tag "categorie_sante.png", class: "img-responsive" %>
-                    <h3 class="text-center">Santé / Dépendances</h3>
-                <% end %>
-            </div>
-            <div class="col-md-3">
-                <%= link_to search_url('q[category_eq]': "Problème professionnel") do %>
-                    <%= image_tag "categorie_travail.png", class: "img-responsive" %>
-                    <h3 class="text-center">Problème professionnel</h3>
-                <% end %>
-            </div>
-            <div class="col-md-3">
-                <%= link_to search_url('q[category_eq]': "Divers") do %>
-                    <%= image_tag "categorie_divers.png", class: "img-responsive" %>
-                    <h3 class="text-center">Divers</h3>
-                <% end %>
-            </div>
-        </div>
-    </div>
-    <div class="row mt-6">
-        <h2>Vous avez besoin d’aide et de quelqu’un à qui parler ?</h2>
-        <%= button_to "Présenter mon problème", new_problem_path, class: "btn btn-primary", method: :get %>
-    </div>
-    <div class="row mt-6">
-        <h2>Des gens ont besoin de votre aide. Lequel pouvez-vous aider ?</h2>
-        <% @problems.each do |problem| %>
-            <div class="col-md-4">
-                <div class="panel panel-default">
-                    <div class="panel-heading preview">
-                        <%= link_to problem.problem_type, problem_path(problem) %>
-                    </div>
-                    <div class="panel-body">
-                        <div class="row">
-                            <div class="col-md-6">
-                                <p class="bloc"><%= link_to problem.category, problem_path(problem) %></p>
-                            </div>
-                            <div class="col-md-2"><%= image_tag avatar_url(problem.user), class:"img-circle avatar-medium" %></div>
-                            <div class="col-md-4"><p><%= problem.user.firstname %> <%= problem.user.lastname.first %></p></div>
-                        </div>
-                        <div class="row" style="margin-left: 2px">
-                            <%= problem.summary %>
-                        </div>
-                    </div>
-                </div>
-            </div>
+      <div class="col-md-3">
+        <%= link_to search_url('q[category_eq]': "Problème d'amitié") do %>
+          <%= image_tag "categorie_amitie.png", class: "img-responsive" %>
+          <h3 class="text-center">Problème d'amitié</h3>
         <% end %>
+      </div>
+      <div class="col-md-3">
+        <%= link_to search_url('q[category_eq]': "Problème sentimental / conjugal") do %>
+          <%= image_tag "categorie_amour.png", class: "img-responsive" %>
+          <h3 class="text-center">Problème sentimental / conjugal</h3>
+        <% end %>
+      </div>
+      <div class="col-md-3">
+        <%= link_to search_url('q[category_eq]': "Problème familial") do %>
+          <%= image_tag "categorie_famille.png", class: "img-responsive" %>
+          <h3 class="text-center">Problème familial</h3>
+        <% end %>
+      </div>
+      <div class="col-md-3">
+        <%= link_to search_url('q[category_eq]': "Handicap") do %>
+          <%= image_tag "categorie_handicap.png", class: "img-responsive" %>
+          <h3 class="text-center">Handicap</h3>
+        <% end %>
+      </div>
     </div>
-    <div class="row mt-6">
-        <h2>AltR, c'est :</h2>
-        <p>
-            L’altruisme : la propension désintéressée à se consacrer et à aimer les autres<br>
-            L’altérité : la reconnaissance de l’autre dans sa différence, et ce qu’elle peut nous apporter<br>
-            L’alter-ego : celui à qui on accorde une confiance absolue<br>
-            L’alternative : notamment aux solutions classiques pour obtenir une aide et qui reposent souvent sur un intérêt financier
-        </p>
+    <div class="row mt-5">
+      <div class="col-md-3">
+        <%= link_to search_url('q[category_eq]': "Deuil") do %>
+          <%= image_tag "categorie_mort.png", class: "img-responsive" %>
+          <h3 class="text-center">Deuil</h3>
+        <% end %>
+      </div>
+      <div class="col-md-3">
+        <%= link_to search_url('q[category_eq]': "Santé / Dépendances") do %>
+          <%= image_tag "categorie_sante.png", class: "img-responsive" %>
+          <h3 class="text-center">Santé / Dépendances</h3>
+        <% end %>
+      </div>
+      <div class="col-md-3">
+        <%= link_to search_url('q[category_eq]': "Problème professionnel") do %>
+          <%= image_tag "categorie_travail.png", class: "img-responsive" %>
+          <h3 class="text-center">Problème professionnel</h3>
+        <% end %>
+      </div>
+      <div class="col-md-3">
+        <%= link_to search_url('q[category_eq]': "Divers") do %>
+          <%= image_tag "categorie_divers.png", class: "img-responsive" %>
+          <h3 class="text-center">Divers</h3>
+        <% end %>
+      </div>
     </div>
+  </div>
+  <div class="row mt-6">
+    <h2>Vous avez besoin d’aide et de quelqu’un à qui parler ?</h2>
+    <%= button_to "Présenter mon problème", new_problem_path, class: "btn btn-primary", method: :get %>
+  </div>
+  <div class="row mt-6">
+    <h2>Des gens ont besoin de votre aide. Lequel pouvez-vous aider ?</h2>
+    <% @problems.each do |problem| %>
+      <div class="col-md-4">
+        <div class="panel panel-default">
+          <div class="panel-heading preview">
+            <%= link_to problem.problem_type, problem_path(problem) %>
+          </div>
+          <div class="panel-body">
+            <div class="row">
+              <div class="col-md-6">
+                <p class="bloc"><%= link_to problem.category, problem_path(problem) %></p>
+              </div>
+              <div class="col-md-2"><%= image_tag avatar_url(problem.user), class:"img-circle avatar-medium" %></div>
+              <div class="col-md-4"><p><%= problem.user.firstname %> <%= problem.user.lastname.first %></p></div>
+            </div>
+            <div class="row" style="margin-left: 2px">
+              <%= problem.summary %>
+            </div>
+          </div>
+        </div>
+      </div>
+    <% end %>
+  </div>
+  <div class="row mt-6">
+    <h2>AltR, c'est :</h2>
+    <p>
+      L’altruisme : la propension désintéressée à se consacrer et à aimer les autres<br>
+      L’altérité : la reconnaissance de l’autre dans sa différence, et ce qu’elle peut nous apporter<br>
+      L’alter-ego : celui à qui on accorde une confiance absolue<br>
+      L’alternative : notamment aux solutions classiques pour obtenir une aide et qui reposent souvent sur un intérêt financier
+    </p>
+  </div>
 </div>
+

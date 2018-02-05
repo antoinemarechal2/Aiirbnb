@@ -13,6 +13,7 @@
  *= require_tree .
  *= require_self
  */
+
 @import "bootstrap-sprockets";
 @import "bootstrap";
 @import "toastr";
@@ -35,7 +36,7 @@
   width: 100%;
 }
 
-body {  
+body {
   color: #565a5c;
 }
 
@@ -66,13 +67,13 @@ body {
 .btn-primary.btn:hover, .btn-primary.btn:focus {
   border-color: #9bd0ff;
   border-bottom-color: #9bd0ff;
-  background-color: #9bd0ff;  
+  background-color: #9bd0ff;
   outline:none;
 }
 
 .btn-primary.btn:active {
   border-color: #52a8f3;
-  background-color: #52a8f3;  
+  background-color: #52a8f3;
   outline:none;
 }
 
@@ -80,7 +81,7 @@ body {
   width: 100%;
   border-radius: 2px;
   padding: 10px 0;
-  margin-top: 10px; 
+  margin-top: 10px;
 }
 
 .panel-default .panel-heading {
@@ -110,7 +111,7 @@ body {
   font-size: 15px;
   font-weight: 500;
   line-height: 25px;
-} 
+}
 
 .form-group {
   margin-bottom: 25px;
@@ -192,9 +193,9 @@ select {
 .select:before {
   content: '\25bc';
   font-size: 1.2em;
-  position: absolute;  
+  position: absolute;
   color: #82888A;
-  top: 40px;  
+  top: 40px;
   right: 30px;
   transform: scale(0.84, 0.42);
 }
@@ -243,7 +244,7 @@ textarea#problem_summary {
 
 .conversation:hover, .conversation:focus {
   background-color: #F4F4F5;
-} 
+}
 
 .btn-primary-fb.btn {
   border: 1px solid #4568b2;
@@ -256,13 +257,13 @@ textarea#problem_summary {
 
 .btn-primary-fb.btn:hover, .btn-primary-fb.btn:focus {
   border-color: #627aac;
-  background-color: #627aac;  
+  background-color: #627aac;
   outline:none;
 }
 
 .btn-primary-fb.btn:active {
   border-color: #2b2eb2;
-  background-color: #2b2ebB2;  
+  background-color: #2b2ebB2;
   outline:none;
 }
 

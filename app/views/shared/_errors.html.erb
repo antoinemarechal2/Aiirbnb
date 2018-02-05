@@ -1,8 +1,8 @@
 <% unless @problem.errors.empty? %>
-<script type='text/javascript'>
+  <script type='text/javascript'>
     <% @problem.errors.full_messages.each do |msg| %>
-    toastr.error('<%= msg %>')
+      toastr.error('<%= msg %>')
     <% end %>
-</script>
-
+  </script>
 <% end %>
+

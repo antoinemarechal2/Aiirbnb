@@ -1,47 +1,48 @@
 <div class="panel panel-default">
-    <div class="panel-heading">
-        Exposez votre problème pour obtenir de l'aide sur AltR.
-    </div>
-    <div class="panel-body">
-        <div class="container">
-            <%= form_for @problem, html: {multipart: true} do |f| %>
-            <%= render 'shared/errors' %>
-            <div class="row">
-                <div class="form-group">
-                <label>Type de problème</label>
-                <%= f.select :category, [
-                    ["Problème d'amitié","Problème d'amitié"],
-                    ["Problème sentimental / conjugal","Problème sentimental / conjugal"],
-                    ["Problème familial","Problème familial"],
-                    ["Handicap","Handicap"],
-                    ["Deuil","Deuil"],
-                    ["Santé / Dépendances","Santé / Dépendances"],
-                    ["Problème professionnel","Problème professionnel"],
-                    ["Divers","Divers"]
-                ], id: "category", prompt: "A sélectionner", class:"form-control" %>
-                </div>
-            </div>
-            
-            <div class="row">
-                <div class="form-group">
-                    <label>Donnez un titre à votre message :</label>
-                    <%= f.text_field :problem_type, placeholder:"Titre du message", class:"form-control" %>
-                </div>
-            </div>
-            
-            <div class="row">
-                <div class="form-group">
-                    <label>Résumez votre problème :</label>
-                    <%= f.text_area :summary, placeholder:"Description de votre problème", class:"form-control" %>
-                </div>
-            </div>
-            
-            <div class="row">
-                <div class="actions">
-                    <%= f.submit "Je valide mon message", class:"btn btn-primary" %>
-                </div>
-            </div>
-            <% end %>
+  <div class="panel-heading">
+    Exposez votre problème pour obtenir de l'aide sur AltR.
+  </div>
+  <div class="panel-body">
+    <div class="container">
+      <%= form_for @problem, html: {multipart: true} do |f| %>
+        <%= render 'shared/errors' %>
+        <div class="row">
+          <div class="form-group">
+            <label>Type de problème</label>
+            <%= f.select :category, [
+              ["Problème d'amitié","Problème d'amitié"],
+              ["Problème sentimental / conjugal","Problème sentimental / conjugal"],
+              ["Problème familial","Problème familial"],
+              ["Handicap","Handicap"],
+              ["Deuil","Deuil"],
+              ["Santé / Dépendances","Santé / Dépendances"],
+              ["Problème professionnel","Problème professionnel"],
+              ["Divers","Divers"]
+            ], id: "category", prompt: "A sélectionner", class:"form-control" %>
+          </div>
         </div>
+
+        <div class="row">
+          <div class="form-group">
+            <label>Donnez un titre à votre message :</label>
+            <%= f.text_field :problem_type, placeholder:"Titre du message", class:"form-control" %>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="form-group">
+            <label>Résumez votre problème :</label>
+            <%= f.text_area :summary, placeholder:"Description de votre problème", class:"form-control" %>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="actions">
+            <%= f.submit "Je valide mon message", class:"btn btn-primary" %>
+          </div>
+        </div>
+      <% end %>
     </div>
+  </div>
 </div>
+

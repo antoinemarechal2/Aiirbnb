@@ -1,18 +1,19 @@
 module ApplicationHelper
-    
-    def avatar_url(user)
+
+  def avatar_url(user)
     if user.image
-       user.image
+      user.image
     else
-       user.avatar.url
+      user.avatar.url
     end
+  end
+
+  def avatar_url(user)
+    if user.avatar.present?
+      user.avatar.url
+    else
+      'default_image.jpg'
     end
-    
-    def avatar_url(user)
-        if user.avatar.present?
-            user.avatar.url
-        else
-            'default_image.jpg'
-        end
-    end
+  end
 end
+

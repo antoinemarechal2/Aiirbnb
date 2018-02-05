@@ -1,16 +1,16 @@
 class ResolutionsController < ApplicationController
   before_action :authenticate_user!
-  
+
   def index
     @problem = Problem.find(params[:problem_id])
     @resolutions = Resolution.where(problem_id: params[:problem_id])
   end
-  
+
   def new
     @problem = Problem.find(params[:problem_id])
     @resolution = Resolution.new
   end
-  
+
   def create
     @resolution = current_user.resolutions.build(resolution_params)
     if @resolution.save
@@ -20,13 +20,13 @@ class ResolutionsController < ApplicationController
       render :new
     end
   end
-  
+
   def accept
     @resolution = Resolution.find(params[:id])
     @resolution.accepted!
     redirect_to :back, notice: "La proposition d'aide a bien été acceptée"
   end
-  
+
   def refuse
     @resolution = Resolution.find(params[:id])
     @resolution.refused!
@@ -40,10 +40,11 @@ class ResolutionsController < ApplicationController
   def your_resolutions
     @problems = current_user.problems
   end
-  
+
   private
 
-  def resolution_params         
-    params.require(:resolution).permit(:problem_id, :proposition)     
-  end 
+  def resolution_params
+    params.require(:resolution).permit(:problem_id, :proposition)
+  end
 end
+

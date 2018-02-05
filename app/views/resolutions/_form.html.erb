@@ -1,24 +1,25 @@
 <div class="panel panel-default">
-     <div class="panel-heading">
-     </div>
-     <div class="panel-body">
-          <div class="container">
-               <%= render 'problems/problem' %>
-               <%= form_for([@problem, @resolution]) do |f| %>
-                    <%= render 'shared/errors' %>
-                    <div class="row">
-                         <div class="form-group">
-                              <label>Proposition :</label>
-                              <%= f.text_area :proposition, class:"form-control" %>
-                         </div>
-                         <%= f.hidden_field :problem_id, value: @problem.id %>
-                         <div class="row">
-                              <div class="actions">
-                                   <%= f.submit "Proposer mon aide", class: "btn btn-primary" %>
-                              </div>
-                         </div>
-                    </div>
-               <% end %>
+  <div class="panel-heading">
+  </div>
+  <div class="panel-body">
+    <div class="container">
+      <%= render 'problems/problem' %>
+      <%= form_for([@problem, @resolution]) do |f| %>
+        <%= render 'shared/errors' %>
+        <div class="row">
+          <div class="form-group">
+            <label>Proposition :</label>
+            <%= f.text_area :proposition, class:"form-control" %>
           </div>
-     </div>
+          <%= f.hidden_field :problem_id, value: @problem.id %>
+          <div class="row">
+            <div class="actions">
+              <%= f.submit "Proposer mon aide", class: "btn btn-primary" %>
+            </div>
+          </div>
+        </div>
+      <% end %>
+    </div>
+  </div>
 </div>
+

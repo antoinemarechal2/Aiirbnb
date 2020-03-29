@@ -1,4 +1,4 @@
-class Problem < ActiveRecord::Base
+class Problem < ApplicationRecord
   belongs_to :user
 
   validates :problem_type, presence: true
@@ -7,4 +7,3 @@ class Problem < ActiveRecord::Base
 
   has_many:resolutions
 end
-

@@ -1,4 +1,3 @@
-# encoding: UTF-8
 # This file is auto-generated from the current state of the database. Instead
 # of editing this file, please use the migrations feature of Active Record to
 # incrementally modify your database, and then regenerate this schema definition.
@@ -13,6 +12,9 @@
 
 ActiveRecord::Schema.define(version: 20171008184953) do
 
+  # These are extensions that must be enabled in order to support this database
+  enable_extension "plpgsql"
+
   create_table "conversations", force: :cascade do |t|
     t.integer  "sender_id"
     t.integer  "recipient_id"
@@ -26,10 +28,9 @@ ActiveRecord::Schema.define(version: 20171008184953) do
     t.integer  "user_id"
     t.datetime "created_at",      null: false
     t.datetime "updated_at",      null: false
+    t.index ["conversation_id"], name: "index_messages_on_conversation_id", using: :btree
+    t.index ["user_id"], name: "index_messages_on_user_id", using: :btree
   end
-
-  add_index "messages", ["conversation_id"], name: "index_messages_on_conversation_id"
-  add_index "messages", ["user_id"], name: "index_messages_on_user_id"
 
   create_table "problems", force: :cascade do |t|
     t.string   "problem_type"
@@ -39,9 +40,8 @@ ActiveRecord::Schema.define(version: 20171008184953) do
     t.integer  "user_id"
     t.datetime "created_at",   null: false
     t.datetime "updated_at",   null: false
+    t.index ["user_id"], name: "index_problems_on_user_id", using: :btree
   end
-
-  add_index "problems", ["user_id"], name: "index_problems_on_user_id"
 
   create_table "resolutions", force: :cascade do |t|
     t.integer  "user_id"
@@ -50,10 +50,9 @@ ActiveRecord::Schema.define(version: 20171008184953) do
     t.datetime "updated_at",              null: false
     t.text     "proposition"
     t.integer  "status",      default: 0
+    t.index ["problem_id"], name: "index_resolutions_on_problem_id", using: :btree
+    t.index ["user_id"], name: "index_resolutions_on_user_id", using: :btree
   end
-
-  add_index "resolutions", ["problem_id"], name: "index_resolutions_on_problem_id"
-  add_index "resolutions", ["user_id"], name: "index_resolutions_on_user_id"
 
   create_table "users", force: :cascade do |t|
     t.string   "email",                  default: "", null: false
@@ -81,12 +80,16 @@ ActiveRecord::Schema.define(version: 20171008184953) do
     t.string   "image"
     t.string   "avatar_file_name"
     t.string   "avatar_content_type"
-    t.integer  "avatar_file_size"
+    t.bigint   "avatar_file_size"
     t.datetime "avatar_updated_at"
+    t.index ["confirmation_token"], name: "index_users_on_confirmation_token", unique: true, using: :btree
+    t.index ["email"], name: "index_users_on_email", unique: true, using: :btree
+    t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
   end
 
-  add_index "users", ["confirmation_token"], name: "index_users_on_confirmation_token", unique: true
-  add_index "users", ["email"], name: "index_users_on_email", unique: true
-  add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
-
+  add_foreign_key "messages", "conversations"
+  add_foreign_key "messages", "users"
+  add_foreign_key "problems", "users"
+  add_foreign_key "resolutions", "problems"
+  add_foreign_key "resolutions", "users"
 end

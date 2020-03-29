@@ -299,7 +299,7 @@ DEPENDENCIES
   paperclip-cloudinary
   pg (>= 0.18, < 2.0)
   puma (~> 3.11)
-  rails (~> 5.2.3)
+  rails (~> 5.2.4.2)
   rails-i18n
   rails-timeago
   ransack
@@ -313,7 +313,7 @@ DEPENDENCIES
   web-console (>= 3.3.0)
 
 RUBY VERSION
-   ruby 2.4.9p362
+   ruby 2.5.7p206
 
 BUNDLED WITH
    2.1.4

@@ -1,0 +1,8 @@
+{
+  "name": "altr",
+  "scripts": {
+    "dokku": {
+      "postdeploy": "bundle exec rails db:migrate"
+    }
+  }
+}

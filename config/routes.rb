@@ -24,10 +24,11 @@ Rails.application.routes.draw do
        resources :messages, only: [:index, :create]
  end
 
+ resources :helps, only: [:index]
+ resources :resolutions, only: [:index]
+
   get '/preload', to: 'resolutions#preload'
   get '/preview', to: 'resolutions#preview'
-  get '/j-aide', to: 'resolutions#your_helps'
-  get '/je-me-fais-aider', to: 'resolutions#your_resolutions'
   get '/search', to: 'pages#search'
   get '/a-propos', to: 'pages#about'
 

@@ -15,7 +15,7 @@ class ProblemsController < ApplicationController
   def create
     @problem = current_user.problems.build(problem_params)
     if @problem.save
-      redirect_to edit_problem_path(@problem), notice:"Votre demande d'aide a été ajoutée avec succès"
+      redirect_to problem_path(@problem), notice:"Votre demande d'aide a été ajoutée avec succès"
     else
       render :new # s’il y a une erreur, redirige vers la page de création new
     end
@@ -52,4 +52,3 @@ class ProblemsController < ApplicationController
     end
   end
 end
-
